@@ -1,4 +1,4 @@
-The content below is only a placeholder and can be replaced.
+<!-- The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -16,5 +16,14 @@ The content below is only a placeholder and can be replaced.
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
-
+</ul> -->
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  <div class="container">
+      <a class="navbar-brand">MicroMoby</a>
+      <ul class="nav navbar-nav" routerLinkActive="active">
+          <li class="nav-item"><a class="nav-link" routerLink="containers">Containers</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="images">Images</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="metrics">Container Metrics</a></li>
+      </ul>
+  </div>
+</nav>
