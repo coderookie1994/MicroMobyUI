@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class HttpService {
@@ -16,9 +17,7 @@ export class HttpService {
     return headers;
   }
 
-  listImages() {
-    return this.http.get(this.postUrl, {
-      headers: this.setHeaders()
-    });
+  public get(url: string): Observable<any> {
+    return this.http.get(url);
   }
 }

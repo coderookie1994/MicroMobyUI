@@ -10,6 +10,10 @@ import { appRoutes } from './routes';
 import { ContainerModule } from './container/container.module';
 import { ImagesModule } from './images/images.module';
 import { MetricsModule } from './metrics/metrics.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { containerReducers } from './container/container.reducer';
+import { ContainerEffects } from './container/container.effects';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { MetricsModule } from './metrics/metrics.module';
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    StoreModule.forRoot(containerReducers),
+    EffectsModule.forRoot([ContainerEffects])
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
