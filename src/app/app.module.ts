@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { containerReducers } from './container/container.reducer';
 import { ContainerEffects } from './container/container.effects';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,10 +27,11 @@ import { ContainerEffects } from './container/container.effects';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    CommonModule,
     RouterModule.forRoot(
       appRoutes
     ),
-    StoreModule.forRoot(containerReducers),
+    StoreModule.forRoot({containerReducers}),
     EffectsModule.forRoot([ContainerEffects])
   ],
   providers: [HttpService],

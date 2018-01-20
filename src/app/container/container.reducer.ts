@@ -9,7 +9,11 @@ export function containerReducers(state: ContainerState = DefaultContainerState,
             case ContainerActionTypes.LIST_CONTAINER_COMPLETED :
                 return Object.assign({}, state, action.payload);
             case ContainerActionTypes.START_CONTAINER_COMPLETED :
-                return Object.assign({}, state, action.payload);    
+            {
+                let currentState = state;
+                currentState.Id = action.payload.Id;
+                return Object.assign({}, state, currentState);    
+            }
             default: 
                 return state;
         }
