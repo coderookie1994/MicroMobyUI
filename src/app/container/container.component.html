@@ -1,1 +1,12 @@
-<mm-toggle-button></mm-toggle-button>
+<!-- <mm-toggle-button></mm-toggle-button> -->
+
+<div>
+    <button (click)="listContainer()">List Containers</button>
+</div>
+
+<ng-container *ngIf="container$ | async as container">
+    <div>{{container.Id}}</div>
+    <div>
+        <mm-toggle-button></mm-toggle-button>
+    </div>
+</ng-container>

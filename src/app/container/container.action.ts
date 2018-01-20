@@ -1,4 +1,5 @@
 import { Store, Action } from '@ngrx/store';
+import { ContainerState } from './models/container.model';
 
 export class ContainerActionTypes {
     
@@ -16,7 +17,7 @@ export class ListContainer implements Action {
 
 export class ListContainerCompleted implements Action {
     readonly type = ContainerActionTypes.LIST_CONTAINER_COMPLETED;
-    constructor(public payload: any) { }
+    constructor(public payload: ContainerState) { }
 }
 
 export class StartContainer implements Action {
