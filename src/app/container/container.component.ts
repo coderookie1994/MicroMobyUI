@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { ContainerContainer } from './container.container';
 @Component({
     selector: "container",
-    templateUrl: "./container.html"
+    templateUrl: "./container.component.html",
 })
 export class ContainerComponent {
     
