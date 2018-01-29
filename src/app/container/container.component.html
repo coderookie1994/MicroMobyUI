@@ -4,27 +4,37 @@
     <button (click)="listContainer()">List Containers</button>
 </div>
 
-<ng-container *ngIf="container$ | async as container">
-    <div>{{container.Id}}</div>
+<ng-container *ngIf="container$ | async as containerState">
+    <!-- <div>{{container.containers}}</div> -->
+    <div class="container">
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Image ID</th>
+                    <th>Image Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of containerState.containers;
+                        let i=index" [attr.data-index]="i">
+                    <td>{{i}}</td>
+                    <td>{{c.id}}</td>
+                    <td>{{c.imageId}}</td>
+                    <td>{{c.image}}</td>
+                    <td *ngIf="c.state === 'running'">
+                        <button type="button" class="btn btn-danger"
+                            (click)="stopContainer(c.id)">Stop</button>
+                    </td>
+                    <td *ngIf="c.state === 'exited'">
+                        <button type="button" class="btn btn-primary"
+                            (click)="startContainer(c.id)">Start</button>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </ng-container>
 
-<div class="container">
-    <table class="table table-hover ">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>ID</th>
-                <th>Image ID</th>
-                <th>Image Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-            </tr>
-        </tbody>
-    </table>
-</div>

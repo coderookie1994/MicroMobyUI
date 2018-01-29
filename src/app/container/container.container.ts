@@ -3,7 +3,7 @@ import { Store } from "@ngrx/store";
 import { ContainerEffects } from "./container.effects";
 import { containerReducers } from "./container.reducer";
 import { Observable } from "rxjs/Observable";
-import { ListContainer } from "./container.action";
+import { ListContainer, StartContainer } from "./container.action";
 import { ContainerState } from "./models/container.model";
 
 
@@ -20,5 +20,13 @@ export class ContainerContainer {
 
     public listContainers() {
         this.store.dispatch(new ListContainer());
+    }
+
+    public startContainer(id: string) {
+        this.store.dispatch(new StartContainer(id));
+    }
+
+    public stopContainer(id: string) {
+
     }
 }

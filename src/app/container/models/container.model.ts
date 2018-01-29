@@ -1,14 +1,23 @@
 
 export interface ContainerState {
-    Id: string;
-    ImageId: string;
-    Image: string;
+    containers: any
+}
+
+export interface Container {
+    id: string;
+    imageId: string;
+    image: string;
+    state: string;
 }
 
 export const DefaultContainerState: ContainerState = {
-    Id: '',
-    Image: '',
-    ImageId: ''
+    containers: [
+        // {
+        //     id: '',
+        //     image: '',
+        //     imageId: ''
+        // }
+    ]
 }
 
 // type Container struct {

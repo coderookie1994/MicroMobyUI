@@ -17,7 +17,7 @@ export class ListContainer implements Action {
 
 export class ListContainerCompleted implements Action {
     readonly type = ContainerActionTypes.LIST_CONTAINER_COMPLETED;
-    constructor(public payload: ContainerState) { }
+    constructor(public payload: any) { }
 }
 
 export class StartContainer implements Action {

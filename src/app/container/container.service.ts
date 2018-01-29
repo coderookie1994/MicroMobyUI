@@ -10,8 +10,13 @@ export class ContainerService {
 
     constructor(private httpService: HttpService) { }
 
-    public listImages(): Observable<any> {
+    public listContainer(): Observable<any> {
         let listUrl = this.baseRoute + '/listcontainer';
         return this.httpService.get(listUrl);
+    }
+
+    public startContainer(body: any): Observable<any> {
+        let startUrl = this.baseRoute + '/startcontainer';
+        return this.httpService.post(startUrl, body);
     }
 }

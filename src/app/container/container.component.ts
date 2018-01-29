@@ -16,16 +16,20 @@ export class ContainerComponent {
 
     ngOnInit() {
         this.container$ = this.container.loadContainers();
+        this.observables.push(this.container$.subscribe((data) => {
+            console.log(data);
+        }));
     }
 
     ngOnChanges() {
     }
 
     public listContainer() {
-        this.observables.push(this.container$.subscribe((data) => {
-            console.log(data);
-        }));
         this.container.listContainers();
+    }
+
+    public startContainer(id: string) {
+        this.container.startContainer(id);
     }
 
     public ngOnDestroy() {
